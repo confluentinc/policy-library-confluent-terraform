@@ -1,0 +1,60 @@
+resource_changes = {
+  "topic0": {
+    "name": "topic0",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic0",
+        "config": {
+          "max.message.bytes": "1024",
+          "retention.bytes": "1",
+          "retention.ms": "0",
+        },
+      },
+    },
+  },
+  "topic1": {
+    "name": "topic1",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic1",
+        "config": {
+          "max.message.bytes": "1024",
+          "retention.bytes": "1048576",
+          "retention.ms": "604800124",
+        },
+      },
+    },
+  },
+  "topic2": {
+    "name": "topic2",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic2",
+        "config": {
+          "max.message.bytes": "1024",
+#          "retention.bytes": "1048576",
+          "retention.ms": "-1",
+        },
+      },
+    },
+  },
+
+}

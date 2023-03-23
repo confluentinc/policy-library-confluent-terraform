@@ -1,0 +1,13 @@
+# Resource change of topics being deleted
+resource_changes = {
+  "confluent_kafka_topic.topic": {
+    "mode": "managed",
+    "type": "confluent_kafka_topic",
+    "name": "topic",
+    "change": {
+      "actions": [
+        "delete",
+      ],
+    },
+  },
+}

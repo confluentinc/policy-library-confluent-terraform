@@ -1,0 +1,61 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_topic_valid_name.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# All new topics should have names that match the
+# topic_name_regex.
+# Note that auto.create.topics.enable should be set to false
+# to ensure topics are not created automatically, as this
+# could allow topics to be created without enforcing this
+# naming standard.
+# ------------------------------------------------------------
+
+# Regex for topic names
+param topic_name_regex default "^(prod|test)[.][a-z0-9.]+$"
+
+# {{ Other example regexes }}
+#
+# Alphanumeric, plus . and -. Don't use underscores to avoid collisions
+# param topic_name_regex default "^[a-zA-Z0-9.-]+$"
+#
+# <department name>.<team name>.<dataset name>.<data format>
+# param topic_name_regex default "^(it|hr|ops|finance|marketing)[.][[:lower:]]+[.][[:lower:]]+[.](avro|json|protobuf|csv|text)$"
+#
+# Public and private namespaces
+# param topic_name_regex default "^(public|private)[.][a-z0-9]+$"
+#
+# {{ End of example regexes }}
+
+
+# get all newly created topics
+all_new_topics = filter tfplan.resource_changes as _, resource_changes {
+  "create" in resource_changes.change.actions and
+  resource_changes.type is "confluent_topic" and
+  resource_changes.mode is "managed"
+}
+
+print(all_new_topics)
+
+# filter this list to topics that match the regex
+valid_topics = filter all_new_topics as _, topic {
+  topic.name matches topic_name_regex
+}
+
+print(valid_topics)
+
+# the length of all_new_topics is the same as all valid_topics
+main = rule {
+  length(valid_topics) == length(all_new_topics)
+}
+
+# in the failing test case, make sure all topics failed
+main_fail = rule {
+  length(valid_topics) == 0
+}
+
+# This seems to be required in order to include main_fail in the output
+# trace and access it from the fail.hcl
+print(main_fail)

@@ -1,0 +1,37 @@
+resource_changes = {
+  "connector0": {
+    "name": "connector0",
+    "type": "confluent_connector",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "config_nonsensitive": {
+          "aws.dynamodb.pk.hash": "value.userid",
+          "aws.dynamodb.pk.sort": "value.pageid",
+          "connector.class": "DatagenSource",
+          "input.data.format": "JSON",
+          "kafka.auth.mode": "SERVICE_ACCOUNT",
+          "kafka.service.account.id": "0",
+          "name": "DynamoDbSinkConnector_0",
+          "tasks.max": "1",
+          "topics": "foo",
+        },
+        "config_sensitive": {
+          "aws.access.key.id": "***REDACTED***",
+          "aws.secret.access.key": "***REDACTED***",
+        },
+        "environment": [
+        {},
+        ],
+        "kafka_cluster": [
+        {},
+        ],
+        "timeouts": null,
+      },
+    },
+  },
+}

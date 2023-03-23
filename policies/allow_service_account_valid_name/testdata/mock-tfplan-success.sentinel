@@ -1,0 +1,30 @@
+resource_changes = {
+  "s0": {
+    "name": "app-awesome",
+    "type": "confluent_service_account",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "description": "Service Accounts Description",
+        "display_name": "app-awesome",
+        "managed_resource": [
+        {
+          "environment": [
+          {},
+          ],
+        },
+        ],
+        "owner": [
+        {
+          "api_version": "iam/v2",
+          "id": "id-1234",
+          "kind": "ServiceAccount",
+        },
+        ],
+      },
+    },
+  },
+}

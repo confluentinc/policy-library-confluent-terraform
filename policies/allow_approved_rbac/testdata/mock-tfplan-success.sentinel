@@ -1,0 +1,24 @@
+resource_changes = {
+  "confluent_role_binding": {
+    "principal": "User:1234",
+    "role_name": "DeveloperRead",
+    "type": "confluent_role_binding",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "confluent_role_binding": {
+    "principal": "User:1234",
+    "role_name": "DeveloperWrite",
+    "type": "confluent_role_binding",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+}

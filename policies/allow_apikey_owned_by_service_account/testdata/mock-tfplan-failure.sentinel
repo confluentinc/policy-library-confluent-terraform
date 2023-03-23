@@ -1,0 +1,31 @@
+resource_changes = {
+  "apikey0": {
+    "mode": "managed",
+    "type": "confluent_api_key",
+    "name": "terraform_sa_kafka_apikey",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "description": "sduff terraform_sa laptop apikey",
+        "disable_wait_for_ready": false,
+        "display_name": "sduff terraform_sa laptop apikey ",
+        "managed_resource": [
+        {
+          "environment": [
+          {},
+          ],
+        },
+        ],
+        "owner": [
+        {
+          "api_version": "iam/v2",
+          "id": "u-1234",
+          "kind": "User",
+        },
+        ],
+      },
+    },
+  },
+}

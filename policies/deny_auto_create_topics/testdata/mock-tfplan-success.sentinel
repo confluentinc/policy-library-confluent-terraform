@@ -1,0 +1,32 @@
+resource_changes = {
+  "c0": {
+    "name": "ok_config",
+    "type": "confluent_kafka_cluster_config",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "config": {
+          "log.retention.ms": "100",
+        },
+      },
+    },
+  },
+  "c1": {
+    "name": "ok_config",
+    "type": "confluent_kafka_cluster_config",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "config": {
+          "auto.create.topics.enable": "false",
+        },
+      },
+    },
+  },
+}

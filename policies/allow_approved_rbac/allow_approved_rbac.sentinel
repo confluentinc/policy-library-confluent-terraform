@@ -1,0 +1,38 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_approved_rbac.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# Only allow speficic roles to be assigned
+# ------------------------------------------------------------
+
+# Array of approved roles that may be assigned
+param approved_roles default [ "DeveloperRead", "DeveloperWrite" ]
+
+# get all newly assigned role bindings
+all_new_role_bindings = filter tfplan.resource_changes as _, resource_changes {
+  "create" in resource_changes.change.actions and
+  resource_changes.type is "confluent_role_binding" and
+  resource_changes.mode is "managed"
+}
+
+# filter this list to role bindings that are in the approved list
+valid_role_bindings = filter all_new_role_bindings as _, bindings {
+  bindings.role_name in approved_roles
+}
+
+# all new role bindings are valid
+main = rule {
+  length(valid_role_bindings) == length(all_new_role_bindings)
+}
+
+# in the failing test case, check that all failure cases actually fail
+main_fail = rule {
+  length(valid_role_bindings) == 0
+}
+
+# This seems to be required in order to include main_fail in the output
+# trace and access it from the fail.hcl
+print(main_fail)

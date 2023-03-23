@@ -1,0 +1,52 @@
+resource_changes = {
+  "topic1": {
+    "name": "prod.topic1",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic2": {
+    "name": "test.topic2",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic3": {
+    "name": "prod.t",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic4": {
+    "name": "test.t",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic5": {
+    "name": "test.3.14159",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+}

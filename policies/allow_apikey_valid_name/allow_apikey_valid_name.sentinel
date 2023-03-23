@@ -1,0 +1,39 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_apikey_valid_name.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# All api-keys should have a display name that matches the
+# apikey_name_regex.
+# ------------------------------------------------------------
+
+# Regex for apikey names
+param apikey_name_regex default "^Owner:.*"
+
+# get all newly created apikeys
+all_new_apikeys = filter tfplan.resource_changes as _, resource_changes {
+  "create" in resource_changes.change.actions and
+  resource_changes.type is "confluent_api_key" and
+  resource_changes.mode is "managed"
+}
+
+# filter this list to apikeys that match the regex
+valid_apikeys = filter all_new_apikeys as _, apikey {
+  apikey.display_name matches apikey_name_regex
+}
+
+# the length of all_new_apikeys is the same as all valid_apikeys
+main = rule {
+  length(valid_apikeys) == length(all_new_apikeys)
+}
+
+# in the failing test case, make sure all apikeys failed
+main_fail = rule {
+  length(valid_apikeys) == 0
+}
+
+# This seems to be required in order to include main_fail in the output
+# trace and access it from the fail.hcl
+print(main_fail)

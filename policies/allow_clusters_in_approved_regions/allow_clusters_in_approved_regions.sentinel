@@ -1,0 +1,44 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_clusters_in_approved_regions.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# Allow clusters to be created, but only in approved cloud
+# regions.
+# TODO: Currently, the region regexes apply to all cloud
+# providers. If required, this may need to be separated into
+# approved regions per provider.
+# See an alternate Sentinel policy to restrict which cloud
+# providers can host clusters.
+# ------------------------------------------------------------
+
+# List of approved regions
+# TODO: There may be a need to break this down by cloud provider
+param approved_regions default [ "^ap-southeast-*", "^australia*" ]
+
+# Get a list of all clusters
+all_new_clusters = filter tfplan.resource_changes as _, resource_changes {
+  "create" in resource_changes.change.actions and
+  resource_changes.type is "confluent_kafka_cluster" and
+  resource_changes.mode is "managed"
+}
+
+# Filter this list to all clusters that match the approved regions
+valid_clusters = filter all_new_clusters as _, cluster {
+  any approved_regions as region {
+    cluster.change.after.region matches region
+  }
+}
+
+# Ensure all clusters are in valid regions
+main = rule {
+  length(valid_clusters) == length(all_new_clusters)
+}
+
+# return true if the plan should fail
+main_fail = rule {
+  length(valid_clusters) == 0
+}
+print(main_fail)

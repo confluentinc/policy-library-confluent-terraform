@@ -1,0 +1,190 @@
+# Resources as of v1.32.0
+#
+# confluent_api_key
+# confluent_cluster_link
+# confluent_connector
+# confluent_environment
+# confluent_identity_pool
+# confluent_identity_provider
+# confluent_kafka_acl
+# confluent_kafka_client_quota
+# confluent_kafka_cluster
+# confluent_kafka_cluster_config
+# confluent_kafka_mirror_topic
+# confluent_kafka_topic
+# confluent_ksql_cluster
+# confluent_network
+# confluent_peering
+# confluent_private_link_access
+# confluent_role_binding
+# confluent_schema
+# confluent_schema_registry_cluster
+# confluent_schema_registry_cluster_config
+# confluent_schema_registry_cluster_mode
+# confluent_service_account
+# confluent_subject_config
+# confluent_subject_mode
+# confluent_transit_gateway_attachment
+
+resource_changes = {
+  "r0": {
+    "name": "r0",
+    "type": "confluent_cluster_link",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r1": {
+    "name": "r1",
+    "type": "confluent_environment",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r2": {
+    "name": "r2",
+    "type": "confluent_identity_pool",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r3": {
+    "name": "r3",
+    "type": "confluent_identity_provider",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r4": {
+    "name": "r4",
+    "type": "confluent_kafka_acl",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r5": {
+    "name": "r5",
+    "type": "confluent_kafka_mirror_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r6": {
+    "name": "r6",
+    "type": "confluent_ksql_cluster",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r7": {
+    "name": "r7",
+    "type": "confluent_network",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r8": {
+    "name": "r8",
+    "type": "confluent_peering",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r9": {
+    "name": "r9",
+    "type": "confluent_private_link_access",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r10": {
+    "name": "r10",
+    "type": "confluent_schema_registry_cluster",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r11": {
+    "name": "r11",
+    "type": "confluent_schema_registry_cluster_config",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r12": {
+    "name": "r12",
+    "type": "confluent_schema_registry_cluster_mode",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r13": {
+    "name": "r13",
+    "type": "confluent_subject_config",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r14": {
+    "name": "r14",
+    "type": "confluent_subject_mode",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "r15": {
+    "name": "r15",
+    "type": "confluent_transit_gateway_attachment",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+}

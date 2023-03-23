@@ -1,0 +1,74 @@
+# Multiple failing test cases
+
+resource_changes = {
+  "topic1": {
+    "name": "prod-topic1",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic2": {
+    "name": "test-topic1",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic3": {
+    "name": "non-prod.topic1",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic4": {
+    "name": "prod",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic5": {
+    "name": "production.topic",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic6": {
+    "name": "prod.ExcitingTopic.42",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "topic7": {
+    "name": "prod.excitingtopic-42",
+    "type": "confluent_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+}

@@ -1,0 +1,32 @@
+resource_changes = {
+  "topic0": {
+    "name": "topic0",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "partitions_count": 1,
+        "topic_name": "topic0",
+      },
+    },
+  },
+  "topic1": {
+    "name": "topic1",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "partitions_count": 100,
+        "topic_name": "topic1",
+      },
+    },
+  },
+}

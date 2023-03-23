@@ -1,0 +1,7 @@
+resource_changes = {
+  "<<TYPE>>": {
+    "name": "<<NAME>>",
+    "type": "confluent_<<TYPE>>",
+    "mode": "managed",
+  },
+}

@@ -1,0 +1,38 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     deny_dedicated_cluster_creation.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# Prevent the creation of a dedicated cluster, but allow
+# standard and basic
+# ------------------------------------------------------------
+
+# Get all new created clusters
+all_new_clusters =  filter tfplan.resource_changes as _, resource_changes {
+  "create" in resource_changes.change.actions and
+  resource_changes.type is "confluent_kafka_cluster" and
+  resource_changes.mode is "managed"
+}
+
+print(all_new_clusters)
+
+# Make sure no clusters are dedicated
+dedicated_clusters = filter all_new_clusters as _, cluster {
+  "dedicated" in cluster.change.after and
+  length(cluster.change.after.dedicated) > 0
+}
+
+print(dedicated_clusters)
+
+# No dedicated clusters are created
+main = rule {
+  length(dedicated_clusters) == 0
+}
+
+# return true if the plan should fail
+main_fail = rule {
+  length(dedicated_clusters) == length(all_new_clusters)
+}
+print(main_fail)

@@ -1,0 +1,35 @@
+resource_changes = {
+  "confluent_role_binding": {
+    "principal": "User:1234",
+    "role_name": "EnvironmentAdmin",
+    "type": "confluent_role_binding",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "confluent_role_binding": {
+    "principal": "User:1234",
+    "role_name": "DeveloperManage",
+    "type": "confluent_role_binding",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+  "confluent_role_binding": {
+    "principal": "User:1234",
+    "role_name": "NetworkAdmin",
+    "type": "confluent_role_binding",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+    },
+  },
+}

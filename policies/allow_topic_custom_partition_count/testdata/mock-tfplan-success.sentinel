@@ -1,0 +1,62 @@
+resource_changes = {
+  "topic0": {
+    "name": "topic0",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic0",
+        "partitions": 3,
+      },
+    },
+  },
+  "topic1": {
+    "name": "topic1",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic1",
+        "partitions": 5,
+      },
+    },
+  },
+  "topic2": {
+    "name": "topic2",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic2",
+        "partitions": 10,
+      },
+    },
+  },
+  "topic3": {
+    "name": "topic3",
+    "type": "confluent_kafka_topic",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "before": null,
+      "after": {
+        "topic_name": "topic3",
+        # default partition count is valid
+      },
+    },
+  },
+}

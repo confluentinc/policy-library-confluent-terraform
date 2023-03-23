@@ -1,0 +1,37 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_connectors_approved.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# Provide a list of Connectors that may be created. Connectors
+# not in this last may not be created.
+# ------------------------------------------------------------
+
+# List of approved connectors
+param approved_connectors default [ "DatagenSource", "S3_SINK", "SqlServerCdcSource" ]
+
+# Get list of new connectors
+all_new_connectors = filter tfplan.resource_changes as _, resource_changes {
+  "create" in resource_changes.change.actions and
+  resource_changes.type == "confluent_connector" and
+  resource_changes.mode is "managed"
+}
+
+# Filter list to approved connectors
+valid_connectors = filter all_new_connectors as _, connector {
+  "connector.class" in connector.change.after.config_nonsensitive and
+  connector.change.after.config_nonsensitive["connector.class"] in approved_connectors
+}
+
+# all new connectors use approved connector.class
+main = rule {
+  length(valid_connectors) == length(all_new_connectors)
+}
+
+# return true if the plan should fail
+main_fail = rule {
+  length(valid_connectors) == 0
+}
+print(main_fail)

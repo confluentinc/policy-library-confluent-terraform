@@ -1,0 +1,50 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_topic_custom_retention_size.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# Allow topics to specify the retention size, given
+# a minimum and maximum range
+# TODO: This is a fixed range of retention sizes for all
+# topics, but there may be cases where some prefixed topics
+# can have different ranges. Maybe introduce this if theres
+# demand.
+# ------------------------------------------------------------
+
+# Minimum and maximum partition counts
+param topic_retention_size_min default 1
+param topic_retention_size_max default 1048576
+
+# Get all topics
+all_new_topics = filter tfplan.resource_changes as _, resource_changes {
+  ("create" in resource_changes.change.actions or
+   "update" in resource_changes.change.actions) and
+  resource_changes.type is "confluent_kafka_topic" and
+  resource_changes.mode is "managed"
+}
+
+print(all_new_topics)
+
+valid_topics = filter all_new_topics as _, topic {
+  # retention size is not configured
+  ( "config" not in topic.change.after or
+    "retention.bytes" not in topic.change.after.config ) or
+  # retention size is configured
+  ( int(topic.change.after.config["retention.bytes"]) <= topic_retention_size_max and
+    int(topic.change.after.config["retention.bytes"]) >= topic_retention_size_min )
+}
+
+print(valid_topics)
+
+main = rule {
+  length(valid_topics) > 0 and
+  length(valid_topics) == length(all_new_topics)
+}
+
+# return true if the plan should fail
+main_fail = rule {
+  length(valid_topics) == 0
+}
+print(main_fail)

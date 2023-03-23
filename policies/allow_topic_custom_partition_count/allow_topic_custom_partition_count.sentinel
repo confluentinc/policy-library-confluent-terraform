@@ -1,0 +1,46 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     allow_topic_custom_partition_count.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# Allow topics to specify the number of partitions, given
+# a minimum and maximum size
+# TODO: This is a fixed range of partitons for all topics,
+# but there may be cases where some prefixed topics can have
+# different ranges. Maybe introduce this if there demand.
+# ------------------------------------------------------------
+
+# Minimum and maximum partition counts
+param topic_partitions_min default 3
+param topic_partitions_max default 10
+
+# Get all topics
+all_new_topics = filter tfplan.resource_changes as _, resource_changes {
+  ("create" in resource_changes.change.actions or
+   "update" in resource_changes.change.actions) and
+  resource_changes.type is "confluent_kafka_topic" and
+  resource_changes.mode is "managed"
+}
+
+print(all_new_topics)
+
+valid_topics = filter all_new_topics as _, topic {
+  "partitions_count" not in topic.change.after or
+  ( topic.change.after.partitions_count <= topic_partitions_max and
+  topic.change.after.partitions_count >= topic_partitions_min )
+}
+
+print(valid_topics)
+
+main = rule {
+  length(valid_topics) > 0 and
+  length(valid_topics) == length(all_new_topics)
+}
+
+# return true if the plan should fail
+main_fail = rule {
+  length(valid_topics) == 0
+}
+print(main_fail)

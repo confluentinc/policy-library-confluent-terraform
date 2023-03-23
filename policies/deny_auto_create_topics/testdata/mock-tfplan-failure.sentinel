@@ -1,0 +1,17 @@
+resource_changes = {
+  "c0": {
+    "name": "bad_config",
+    "type": "confluent_kafka_cluster_config",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "config": {
+          "auto.create.topics.enable": "true",
+        },
+      },
+    },
+  },
+}

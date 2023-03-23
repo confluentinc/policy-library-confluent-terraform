@@ -1,0 +1,19 @@
+import "tfplan/v2" as tfplan
+
+# ------------------------------------------------------------
+# Name:     <<NAME>>.sentinel
+# Author:   Simon Duff <sduff@confluent.io>
+# Provider: confluentinc/confluent
+# ------------------------------------------------------------
+# <<TODO>>
+# ------------------------------------------------------------
+
+main = rule {
+  true
+}
+
+# return true if the plan should fail
+main_fail = rule {
+  true
+}
+print(main_fail)

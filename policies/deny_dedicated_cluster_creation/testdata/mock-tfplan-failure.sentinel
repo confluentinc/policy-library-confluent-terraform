@@ -1,0 +1,59 @@
+resource_changes = {
+  "cluster0": {
+    "name": "cluster0_dedicated",
+    "type": "confluent_kafka_cluster",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "availability": "SINGLE_ZONE",
+        "basic": [
+        ],
+        "cloud": "Azure",
+        "dedicated": [
+        {
+          "cku": 2,
+          "encryption_key": null,
+        },
+        ],
+        "display_name": "dedicated_kafka_cluster",
+        "environment": [
+        {},
+        ],
+        "region": "us-east-1",
+        "standard": [
+        ],
+        "timeouts": null,
+      },
+    },
+  },
+  "cluster1": {
+    "name": "cluster0_dedicated",
+    "type": "confluent_kafka_cluster",
+    "mode": "managed",
+    "change": {
+      "actions": [
+        "create",
+      ],
+      "after": {
+        "availability": "SINGLE_ZONE",
+        "basic": [
+        ],
+        "cloud": "Azure",
+        "dedicated": [
+        {},
+        ],
+        "display_name": "dedicated_kafka_cluster",
+        "environment": [
+        {},
+        ],
+        "region": "us-east-1",
+        "standard": [
+        ],
+        "timeouts": null,
+      },
+    },
+  },
+}
