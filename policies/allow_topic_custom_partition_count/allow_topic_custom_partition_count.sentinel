@@ -41,6 +41,7 @@ main = rule {
 
 # return true if the plan should fail
 main_fail = rule {
+  length(all_new_topics) > 0 and
   length(valid_topics) == 0
 }
 print(main_fail)
