@@ -33,7 +33,7 @@ param topic_name_regex default "^(prod|test)[.][a-z0-9.]+$"
 # get all newly created topics
 all_new_topics = filter tfplan.resource_changes as _, resource_changes {
   "create" in resource_changes.change.actions and
-  resource_changes.type is "confluent_topic" and
+  resource_changes.type is "confluent_kafka_topic" and
   resource_changes.mode is "managed"
 }
 

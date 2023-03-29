@@ -1,7 +1,7 @@
 resource_changes = {
   "topic1": {
     "name": "prod.topic1",
-    "type": "confluent_topic",
+    "type": "confluent_kafka_topic",
     "mode": "managed",
     "change": {
       "actions": [
@@ -11,7 +11,7 @@ resource_changes = {
   },
   "topic2": {
     "name": "test.topic2",
-    "type": "confluent_topic",
+    "type": "confluent_kafka_topic",
     "mode": "managed",
     "change": {
       "actions": [
@@ -21,7 +21,7 @@ resource_changes = {
   },
   "topic3": {
     "name": "prod.t",
-    "type": "confluent_topic",
+    "type": "confluent_kafka_topic",
     "mode": "managed",
     "change": {
       "actions": [
@@ -31,7 +31,7 @@ resource_changes = {
   },
   "topic4": {
     "name": "test.t",
-    "type": "confluent_topic",
+    "type": "confluent_kafka_topic",
     "mode": "managed",
     "change": {
       "actions": [
@@ -41,7 +41,7 @@ resource_changes = {
   },
   "topic5": {
     "name": "test.3.14159",
-    "type": "confluent_topic",
+    "type": "confluent_kafka_topic",
     "mode": "managed",
     "change": {
       "actions": [
