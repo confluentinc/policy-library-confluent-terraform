@@ -39,7 +39,6 @@ valid_topics = filter all_new_topics as _, topic {
 print(valid_topics)
 
 main = rule {
-  length(valid_topics) > 0 and
   length(valid_topics) == length(all_new_topics)
 }
 
