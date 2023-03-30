@@ -1,10 +1,12 @@
-# Confluent Cloud Sentinel Policies for Terraform
+# Confluent Sentinel Policies for Terraform
 
 This library, provides prescriptive Sentinel policies that can be used to
-establish well managed Terraform configuration for Confluent Cloud resources.
+establish well managed Terraform configuration for Confluent resources.
 Terraform Cloud/Enterprise users can use the policies in this library to
 establish an initial policy-as-code framework as they onboard new and
-additional use-cases in Confluent Cloud.
+additional use-cases in Confluent.
+
+The policies primarily resources created and managed by the [Confluent Provider](https://registry.terraform.io/providers/confluentinc/confluent/latest).
 
 > **NOTE:**
 >
