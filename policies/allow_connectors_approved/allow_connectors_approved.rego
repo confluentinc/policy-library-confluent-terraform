@@ -1,5 +1,7 @@
 package confluent
 
+import future.keywords.in
+
 # ------------------------------------------------------------
 # Name:     allow_connectors_approved.rego
 # Author:   Simon Duff <sduff@confluent.io>
