@@ -21,10 +21,10 @@ topic_retention_size_max := 1048576
 
 # `or` condition
 is_bad(topic) {
-  to_number(topic.change.after.config["retention.bytes"]) < topic_retention_bytes_min
+  to_number(topic.change.after.config["retention.bytes"]) < topic_retention_size_min
 }
 is_bad(topic) {
-  to_number(topic.change.after.config["retention.bytes"]) > topic_retention_bytes_max
+  to_number(topic.change.after.config["retention.bytes"]) > topic_retention_size_max
 }
 
 deny[msg] {
