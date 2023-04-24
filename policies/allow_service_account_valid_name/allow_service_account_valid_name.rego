@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_service_account_valid_name
 
 # ------------------------------------------------------------
 # Name:     allow_service_account_valid_name.rego

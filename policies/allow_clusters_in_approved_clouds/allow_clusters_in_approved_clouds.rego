@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_clusters_in_approved_clouds
 import future.keywords.in
 
 # ------------------------------------------------------------

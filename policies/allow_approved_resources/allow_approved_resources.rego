@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_approved_resources
 import future.keywords.in
 
 # ------------------------------------------------------------

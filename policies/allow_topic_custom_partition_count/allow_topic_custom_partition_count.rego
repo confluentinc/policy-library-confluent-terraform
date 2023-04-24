@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_topic_custom_partition_count
 
 import future.keywords.if
 import future.keywords.in

@@ -1,9 +1,8 @@
-
-package confluent
+package confluent.allow_approved_rbac
 import future.keywords.in
 
 # ------------------------------------------------------------
-# Name:     allow_approved_rbac.sentinel
+# Name:     allow_approved_rbac.rego
 # Author:   Simon Duff <sduff@confluent.io>
 # Provider: confluentinc/confluent
 # ------------------------------------------------------------

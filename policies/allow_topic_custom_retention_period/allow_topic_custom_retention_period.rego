@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_topic_custom_retention_period
 
 import future.keywords.if
 import future.keywords.in

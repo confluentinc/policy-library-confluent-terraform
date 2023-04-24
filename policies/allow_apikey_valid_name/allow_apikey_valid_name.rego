@@ -1,7 +1,7 @@
-package confluent
+package confluent.allow_apikey_valid_name
 
 # ------------------------------------------------------------
-# Name:     allow_apikey_valid_name.sentinel
+# Name:     allow_apikey_valid_name.rego
 # Author:   Simon Duff <sduff@confluent.io>
 # Provider: confluentinc/confluent
 # ------------------------------------------------------------

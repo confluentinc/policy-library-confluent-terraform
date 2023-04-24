@@ -1,4 +1,4 @@
-package confluent
+package confluent.deny_auto_create_topics
 
 # ------------------------------------------------------------
 # Name:     deny_auto_create_topics.rego
@@ -21,7 +21,7 @@ deny[msg] {
 
   # Deny
   msg := sprintf(
-    "Cluster Config (%s) contains auto.create.topics.enable = true", 
+    "Cluster Config (%s) contains auto.create.topics.enable = true",
     [rc.address]
   )
 }

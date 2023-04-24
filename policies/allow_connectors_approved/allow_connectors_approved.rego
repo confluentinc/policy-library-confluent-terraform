@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_connectors_approved
 
 import future.keywords.in
 
@@ -12,7 +12,7 @@ import future.keywords.in
 # ------------------------------------------------------------
 
 # Array of approved Connectors
-approved_connectors := [ "xDatagenSource", "S3_SINK", "SqlServerCdcSource" ]
+approved_connectors := [ "DatagenSource", "S3_SINK", "SqlServerCdcSource" ]
 
 deny[msg] {
   # All new connectors

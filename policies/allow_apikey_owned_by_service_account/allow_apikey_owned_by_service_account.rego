@@ -1,4 +1,4 @@
-package confluent
+package confluent.allow_apikey_owned_by_service_account
 
 # ------------------------------------------------------------
 # Name:     allow_apikey_owned_by_service_account.rego
