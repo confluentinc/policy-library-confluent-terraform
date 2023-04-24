@@ -1,4 +1,4 @@
-package confluent
+package confluent.deny_dedicated_cluster_creation
 
 # ------------------------------------------------------------
 # Name:     deny_dedicated_cluster_creation.rego
@@ -23,6 +23,6 @@ deny[msg] {
   # Deny
   msg := sprintf(
     "Cluster Config (%s) is defined as a dedicated cluster",
-    [rc.name]
+    [rc.change.after.display_name]
   )
 }
