@@ -19,7 +19,7 @@ policy "allow_approved_resources" {
 }
 
 policy "allow_clusters_in_approved_clouds" {
-  query = "data.confluent.allow_clusters_in_approved_cloud.deny"
+  query = "data.confluent.allow_clusters_in_approved_clouds.deny"
   enforcement_level = "advisory"
 }
 
