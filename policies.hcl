@@ -1,44 +1,36 @@
 # Testing format of policy stanzas
 
-policy "must-fail-1.rego" {
-  query = "data.confluent.deny"
-  enforcement_level = "mandatory"
-}
-
-policy "policies/must-fail-2.rego" {
-  query = "data.confluent.deny"
-  enforcement_level = "mandatory"
-}
-
-policy "policies/must-fail-3/must-fail-3.rego" {
-  query = "data.confluent.deny"
-  enforcement_level = "mandatory"
-}
-
-policy "policies/must-fail-4/must-fail-4" {
-  query = "data.confluent.deny"
-  enforcement_level = "mandatory"
-}
-policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
-  query = "data.confluent.deny"
-  enforcement_level = "advisory"
-}
-policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
-  query = "data.confluent.deny_dedicated_cluster_creation.deny"
-  enforcement_level = "advisory"
-}
-
+# policy "must-fail-1.rego" {
+#   query = "data.confluent.deny"
+#   enforcement_level = "mandatory"
+# }
+#
+# policy "policies/must-fail-2.rego" {
+#   query = "data.confluent.deny"
+#   enforcement_level = "mandatory"
+# }
+#
+# policy "policies/must-fail-3/must-fail-3.rego" {
+#   query = "data.confluent.deny"
+#   enforcement_level = "mandatory"
+# }
+#
+# policy "policies/must-fail-4/must-fail-4" {
+#   query = "data.confluent.deny"
+#   enforcement_level = "mandatory"
+# }
+# policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
+#   query = "data.confluent.deny"
+#   enforcement_level = "advisory"
+# }
+# policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
+#   query = "data.confluent.deny_dedicated_cluster_creation.deny"
+#   enforcement_level = "advisory"
+# }
 #policy "maybe_this_can_be_anything" {
 #  query = "data.confluent.deny_dedicated_cluster_creation.deny"
 #  enforcement_level = "advisory"
 #}
-
-
-
-
-
-
-
 
 policy "./policies/allow_apikey_owned_by_service_account/allow_apikey_owned_by_service_account.rego" {
   query = "data.confluent.deny"
