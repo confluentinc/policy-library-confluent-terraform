@@ -1,4 +1,4 @@
-package confluent
+package confluent.deny_topic_deletion
 
 # ------------------------------------------------------------
 # Name:     deny_topic_deletion.rego
