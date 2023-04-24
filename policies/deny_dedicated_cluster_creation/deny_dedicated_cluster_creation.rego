@@ -11,7 +11,7 @@ package confluent
 
 deny[msg] {
   # All new cluster configs
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_kafka_cluster"
   rc.mode == "managed"
   rc.change.actions[_] == "create"
