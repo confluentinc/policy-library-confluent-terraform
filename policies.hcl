@@ -92,7 +92,7 @@ policy "./policies/allow_topic_valid_name/allow_topic_valid_name.rego" {
   enforcement_level = "advisory"
 }
 
-policy "./policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
+policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
   query = "data.confluent.deny_dedicated_cluster_creation.deny"
   enforcement_level = "mandatory"
 }
