@@ -19,6 +19,10 @@ policy "policies/must-fail-4/must-fail-4" {
   query = "data.confluent.deny"
   enforcement_level = "mandatory"
 }
+policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation.rego" {
+  query = "data.confluent.deny"
+  enforcement_level = "advisory"
+}
 
 
 
