@@ -17,7 +17,7 @@ package confluent.deny_topic_deletion
 
 deny[msg] {
   # All deleted topics
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_kafka_topic"
   rc.mode == "managed"
   rc.change.actions[_] == "delete"

@@ -13,7 +13,7 @@ service_name_regex := "^app-.*$"
 
 deny[msg] {
   # All new service accounts
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_service_account"
   rc.mode == "managed"
   rc.change.actions[_] == "create"

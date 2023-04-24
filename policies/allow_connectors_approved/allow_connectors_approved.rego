@@ -16,7 +16,7 @@ approved_connectors := [ "DatagenSource", "S3_SINK", "SqlServerCdcSource" ]
 
 deny[msg] {
   # All new connectors
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_connector"
   rc.mode == "managed"
   rc.change.actions[_] == "create"

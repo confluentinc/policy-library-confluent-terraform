@@ -43,7 +43,7 @@ approved_resources := [
 
 deny[msg] {
   # All new resources
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.mode == "managed"
   rc.change.actions[_] == "create"
 

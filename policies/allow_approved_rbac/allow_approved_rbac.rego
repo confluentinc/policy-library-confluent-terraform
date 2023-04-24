@@ -14,7 +14,7 @@ approved_roles := [ "DeveloperRead", "DeveloperWrite" ]
 
 deny[msg] {
   # All new role bindings
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_role_binding"
   rc.mode == "managed"
   rc.change.actions[_] == "create"

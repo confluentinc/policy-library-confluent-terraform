@@ -14,7 +14,7 @@ apikey_name_regex := "^Owner:.*"
 
 deny[msg] {
   # All new API keys
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_api_key"
   rc.mode == "managed"
   rc.change.actions[_] == "create"

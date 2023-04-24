@@ -11,7 +11,7 @@ package confluent.deny_auto_create_topics
 
 deny[msg] {
   # All new cluster configs
-  rc = input.resource_changes[_]
+  rc = input.plan.resource_changes[_]
   rc.type == "confluent_kafka_cluster_config"
   rc.mode == "managed"
   rc.change.actions[_] == "create"
