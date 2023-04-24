@@ -27,10 +27,11 @@ policy "policies/deny_dedicated_cluster_creation/deny_dedicated_cluster_creation
   query = "data.confluent.deny_dedicated_cluster_creation.deny"
   enforcement_level = "advisory"
 }
-policy "maybe_this_can_be_anything" {
-  query = "data.confluent.deny_dedicated_cluster_creation.deny"
-  enforcement_level = "advisory"
-}
+
+#policy "maybe_this_can_be_anything" {
+#  query = "data.confluent.deny_dedicated_cluster_creation.deny"
+#  enforcement_level = "advisory"
+#}
 
 
 
