@@ -18,8 +18,8 @@ deny[msg] {
 
   # All new connectors
   rc = input.plan.resource_changes[_]
-  msg := sprintf("[TEST] %s", [input.plan])
-#   rc.type == "confluent_connector"
+  rc.type == "confluent_connector"
+  msg := sprintf("[TEST] %s", [rc])
 #   rc.mode == "managed"
 #   rc.change.actions[_] == "create"
 # 
