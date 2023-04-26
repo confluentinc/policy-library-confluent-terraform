@@ -21,7 +21,7 @@ deny[msg] {
   rc.type == "confluent_connector"
   rc.mode == "managed"
   rc.change.actions[_] == "create"
-  msg := sprintf("[TEST] %s", [rc])
+  msg := sprintf("[TEST] %s\n%s", [approved_connectors, rc.change.after])
 
 #   # Keep connectors that aren't in the approved list
 #   not rc.change.after.config_nonsensitive["connector.class"] in approved_connectors
