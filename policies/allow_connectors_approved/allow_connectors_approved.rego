@@ -19,10 +19,10 @@ deny[msg] {
   # All new connectors
   rc = input.plan.resource_changes[_]
   rc.type == "confluent_connector"
+  rc.mode == "managed"
+  rc.change.actions[_] == "create"
   msg := sprintf("[TEST] %s", [rc])
-#   rc.mode == "managed"
-#   rc.change.actions[_] == "create"
-# 
+
 #   # Keep connectors that aren't in the approved list
 #   not rc.change.after.config_nonsensitive["connector.class"] in approved_connectors
 # 
