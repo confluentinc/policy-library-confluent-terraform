@@ -1,5 +1,7 @@
 package confluent.allow_approved_rbac
+
 import future.keywords.in
+import future.keywords.if
 
 # ------------------------------------------------------------
 # Name:     allow_approved_rbac.rego
@@ -12,16 +14,16 @@ import future.keywords.in
 # Array of approved roles that may be assigned
 approved_roles := [ "DeveloperRead", "DeveloperWrite" ]
 
-# Resource changes
-#   input.resource_changes are plans created with terraform show
-#   input.plan.resource_changes are planned created from Terraform Cloud
-# Need to double dereference this later to access individual changes
-resource_changes := { input.resource_changes }
-resource_changes := { input.plan.resource_changes }
+# Determine if json structure is from TF Cloud or TF CLI
+tfplan := input if {
+  input.terraform_version
+} else := input.plan if {
+  input.plan.terraform_version
+}
 
 deny[msg] {
   # All new role bindings
-  rc = resource_changes[_][_]
+  rc = tfplan.resource_changes[_]
   rc.type == "confluent_role_binding"
   rc.mode == "managed"
   rc.change.actions[_] == "create"

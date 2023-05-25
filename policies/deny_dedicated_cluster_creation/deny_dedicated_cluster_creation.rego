@@ -1,5 +1,7 @@
 package confluent.deny_dedicated_cluster_creation
 
+import future.keywords.if
+
 # ------------------------------------------------------------
 # Name:     deny_dedicated_cluster_creation.rego
 # Author:   Simon Duff <sduff@confluent.io>
@@ -9,16 +11,16 @@ package confluent.deny_dedicated_cluster_creation
 # standard and basic
 # ------------------------------------------------------------
 
-# Resource changes
-#   input.resource_changes are plans created with terraform show
-#   input.plan.resource_changes are planned created from Terraform Cloud
-# Need to double dereference this later to access individual changes
-resource_changes := { input.resource_changes }
-resource_changes := { input.plan.resource_changes }
+# Determine if json structure is from TF Cloud or TF CLI
+tfplan := input if {
+  input.terraform_version
+} else := input.plan if {
+  input.plan.terraform_version
+}
 
 deny[msg] {
   # All new cluster configs
-  rc = resource_changes[_][_]
+  rc = tfplan.resource_changes[_]
   rc.type == "confluent_kafka_cluster"
   rc.mode == "managed"
   rc.change.actions[_] == "create"
