@@ -18,7 +18,7 @@ The policies primarily resources created and managed by the [Confluent Provider]
 > We also welcome any contributions that improve the quality of this library!
 > To learn more about contributing and suggesting changes to this library,
 > refer to the [contributing
-> guide](https://github.com/confluentinc/policy-library-confluent-terraform/blob/main/CONTRIBUTING.md).
+> guide](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/CONTRIBUTING.md).
 
 ## Policies included
 
