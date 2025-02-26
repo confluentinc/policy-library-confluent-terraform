@@ -4,6 +4,8 @@ import "tfplan/v2" as tfplan
 # Name:     allow_approved_rbac.sentinel
 # Author:   Simon Duff <sduff@confluent.io>
 # Provider: confluentinc/confluent
+# Version:  1.0 20230323 Initial upload
+#           1.1 20250227 Fixed role_name binding path
 # ------------------------------------------------------------
 # Only allow speficic roles to be assigned
 # ------------------------------------------------------------
@@ -20,7 +22,7 @@ all_new_role_bindings = filter tfplan.resource_changes as _, resource_changes {
 
 # filter this list to role bindings that are in the approved list
 valid_role_bindings = filter all_new_role_bindings as _, bindings {
-  bindings.role_name in approved_roles
+  bindings.change.after.role_name in approved_roles
 }
 
 # all new role bindings are valid
