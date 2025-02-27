@@ -1,35 +1,42 @@
 resource_changes = {
   "confluent_role_binding": {
-    "principal": "User:1234",
-    "role_name": "EnvironmentAdmin",
     "type": "confluent_role_binding",
     "mode": "managed",
     "change": {
       "actions": [
         "create",
       ],
+      "before": null,
+      "after": {
+        "crn_pattern": "crn://confluent.cloud/",
+        "principal": "User:sa-sduff",
+        "role_name": "NetworkAdmin",
+      },
+      "after_unknown": {
+        "id": true,
+      },
+      "before_sensitive": false,
+      "after_sensitive": {},
     },
   },
   "confluent_role_binding": {
-    "principal": "User:1234",
-    "role_name": "DeveloperManage",
     "type": "confluent_role_binding",
     "mode": "managed",
     "change": {
       "actions": [
         "create",
       ],
-    },
-  },
-  "confluent_role_binding": {
-    "principal": "User:1234",
-    "role_name": "NetworkAdmin",
-    "type": "confluent_role_binding",
-    "mode": "managed",
-    "change": {
-      "actions": [
-        "create",
-      ],
+      "before": null,
+      "after": {
+        "crn_pattern": "crn://confluent.cloud/",
+        "principal": "User:sa-sduff",
+        "role_name": "DeveloperManage",
+      },
+      "after_unknown": {
+        "id": true,
+      },
+      "before_sensitive": false,
+      "after_sensitive": {},
     },
   },
 }
