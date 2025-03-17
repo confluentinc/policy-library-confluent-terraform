@@ -21,10 +21,10 @@ all_new_apikeys = filter tfplan.resource_changes as _, resource_changes {
 
 # filter this list to apikeys that match the regex
 valid_apikeys = filter all_new_apikeys as _, apikey {
-  apikey.display_name matches apikey_name_regex
+  apikey.change.after.display_name matches apikey_name_regex
 }
 
-# the length of all_new_apikeys is the same as all valid_apikeys
+# All new API keys have valid display names
 main = rule {
   length(valid_apikeys) == length(all_new_apikeys)
 }

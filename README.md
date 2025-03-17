@@ -22,7 +22,6 @@ The policies primarily resources created and managed by the [Confluent Provider]
 
 ## Policies included
 
-- All new API Keys should be owned by Service Accounts, not Users ([docs](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/docs/policies/allow_apikey_owned_by_service_account.md) | [code](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/policies/allow_apikey_owned_by_service_account/allow_apikey_owned_by_service_account.sentinel))
 - API Keys should have a valid name ([docs](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/docs/policies/allow_apikey_valid_name.md) | [code](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/policies/allow_apikey_valid_name/allow_apikey_valid_name.sentinel))
 - Only approved RBAC Roles may be assigned ([docs](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/docs/policies/allow_approved_rbac.md) | [code](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/policies/allow_approved_rbac/allow_approved_rbac.sentinel))
 - Only approved resources may be provisioned ([docs](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/docs/policies/allow_approved_resources.md) | [code](https://github.com/confluentinc/policy-library-confluent-terraform/blob/master/policies/allow_approved_resources/allow_approved_resources.sentinel))
