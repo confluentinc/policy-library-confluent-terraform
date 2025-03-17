@@ -2,14 +2,16 @@
 
 resource_changes = {
   "apikey": {
-    "display_name": "Owned by totally awesome apps",
-    "description": "This Application is Totally Awesome",
     "type": "confluent_api_key",
     "mode": "managed",
     "change": {
       "actions": [
         "create",
       ],
+      "after": {
+        "display_name": "Owned by totally awesome apps",
+        "description": "This Application is Totally Awesome",
+      },
     },
   },
 }

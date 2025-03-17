@@ -1,13 +1,15 @@
 resource_changes = {
   "apikey": {
-    "display_name": "Owner: sduff",
-    "description": "Application: Negasonic Teenage Warhead",
     "type": "confluent_api_key",
     "mode": "managed",
     "change": {
       "actions": [
         "create",
       ],
+      "after": {
+        "display_name": "Owner: sduff",
+        "description": "Application: Negasonic Teenage Warhead",
+      },
     },
   },
 }
