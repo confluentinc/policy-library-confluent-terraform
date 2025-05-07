@@ -1,2 +1,3 @@
+name: policy-library-confluent-terraform
 semaphore:
    enable: true
