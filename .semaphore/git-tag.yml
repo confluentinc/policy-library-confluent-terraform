@@ -1,0 +1,16 @@
+version: v1.0
+name: git-tag
+agent:
+  machine:
+    type: s1-prod-ubuntu24-04-amd64-1
+
+blocks:
+  - name: "git tag"
+    task:
+      jobs:
+        - name: "git tag"
+          commands:
+            - git clone git@github.com:confluentinc/policy-library-confluent-terraform.git
+            - cd policy-library-confluent-terraform
+            - git tag $TAG
+            - git push origin $TAG
