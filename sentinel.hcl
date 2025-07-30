@@ -1,8 +1,3 @@
-policy "allow_apikey_owned_by_service_account" {
-  source = "./policies/allow_apikey_owned_by_service_account/allow_apikey_owned_by_service_account.sentinel"
-  enforcement_level = "advisory"
-}
-
 policy "allow_apikey_valid_name" {
   source = "./policies/allow_apikey_valid_name/allow_apikey_valid_name.sentinel"
   enforcement_level = "advisory"
